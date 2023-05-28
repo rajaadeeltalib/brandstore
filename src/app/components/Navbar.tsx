@@ -7,18 +7,21 @@ import {BiCart} from "react-icons/bi"
 import {AiOutlineHeart} from "react-icons/ai"
 import Wrapper from './Wrapper';
 
+
 const Navbar = () => {
   return (
     <Wrapper>
       <div className='flex flex-col md:flex-row justify-between h-24 items-center'>
         <div className='mb-4 md:mb-0'>
+<Link href={"/"} >
           <Image src={Logo} alt='Logo' />
+          </Link>
         </div>
         <div className='flex gap-10 mb-4 md:mb-0'>
-          <Link href='/'>Female</Link>
-          <Link href='/'>Male</Link>
-          <Link href='/'>Kids</Link>
-          <Link href='/'>All Products</Link>
+          <Link href='/female'>Female</Link>
+          <Link href='/male'>Male</Link>
+          <Link href='/kids'>Kids</Link>
+          <Link href='/products'>All Products</Link>
         </div>
 
         <div className='flex items-center gap-2'>

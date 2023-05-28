@@ -9,7 +9,7 @@ import Unique from "./components/Unique";
 export default function Home() {
   return (
     <>
-      <Navbar/>
+      
       <Hero/>
       <Promotions />
       <Products />
