@@ -23,7 +23,7 @@ const Products = async() => {
     <h1 className="flex justify-center py-16 max-w-screen mx-auto text-4xl font-bold">All Products</h1>
     <div className="grid grid-cols-4 gap-24">
       {product.items.map((p:any, i:number)=>(
-      <div>
+      <div key={i}>
         {product.includes.Asset.map((elem:any)=>(
           
       <div key={elem.sys.id}>
