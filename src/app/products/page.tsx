@@ -27,7 +27,7 @@ const Products = async() => {
         {product.includes.Asset.map((elem:any)=>(
           
       <div key={elem.sys.id}>
-      <Link href={"/products/female"}>
+      <Link href={`/products/slug`}>
         {p.fields.image.sys.id == elem.sys.id ?
       
       <Image src={"https:" + elem.fields.file.url} alt="Product 1" width={400} height={400}/> : <div></div>}</Link>

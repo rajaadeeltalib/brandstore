@@ -4,7 +4,7 @@ import Link from "next/link"
 import Wrapper from "../components/Wrapper"
 
 async function getFemaleProducts() {
-  const res = await fetch(`https://cdn.contentful.com/spaces/${process.env.SPACE_ID}/entries?access_token=${process.env.CONTENTFUL_ACCESS_KEY}&content_type=products`, { cache: 'no-store' });
+  const res = await fetch(`https://cdn.contentful.com/spaces/${process.env.SPACE_ID}/entries?access_token=${process.env.CONTENTFUL_ACCESS_KEY}&content_type=products&fields.category=Female`, { cache: 'no-store' });
   
   // Recommendation: handle errors
   if (!res.ok) {
