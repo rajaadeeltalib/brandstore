@@ -15,11 +15,11 @@ const Products = () => {
         Check What We Have
         </h2>
       </div>
-      <div className="grid grid-cols-3 mt-12 gap-x-20">
-     <div className=" h-96 hover:hover:scale-110 duration-150"><Image src={ProductOne} alt="Product One" /><p className="text-lg font-bold">Brushed Raglan Sweatshirt</p><p className="text-lg font-bold">$195</p>
+      <div className="flex mt-12">
+     <div className=" h-96 hover:hover:scale-110 transition duration-700 ease-in-out z-10"><Image src={ProductOne} alt="Product One" width={500} height={500}/><p className="text-lg font-bold">Brushed Raglan Sweatshirt</p><p className="text-lg font-bold">$195</p>
 </div>
-     <div className="hover:hover:scale-110 duration-150"><Image src={ProductTwo} alt="Product Two" height={395} /><p className="text-lg font-bold">Cameryn Sash Tie Dress</p><p className="text-lg font-bold">$545</p></div>
-     <div className=" h-96 hover:hover:scale-110 duration-150"><Image src={ProductThree} alt="Product Three" /><p className="text-lg font-bold">Flex Sweatshirt</p><p className="text-lg font-bold">$175</p></div>
+     <div className="hover:hover:scale-110 transition duration-700 ease-in-out z-20"><Image src={ProductTwo} alt="Product Two" width={500} height={500} /><p className="text-lg font-bold">Cameryn Sash Tie Dress</p><p className="text-lg font-bold">$545</p></div>
+     <div className=" h-96 hover:hover:scale-110 transition duration-700 ease-in-out z-30"><Image src={ProductThree} alt="Product Three" width={500} height={500} /><p className="text-lg font-bold">Flex Sweatshirt</p><p className="text-lg font-bold">$175</p></div>
      
         {/* Section right start */}
         
