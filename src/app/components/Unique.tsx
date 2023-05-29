@@ -12,16 +12,16 @@ const Unique = () => {
         <div>Unique and Authentic Vintage Designer Jewellery</div>
     </div>
     </Wrapper>
-    <div className="max-w-screen bg-teal-50 h-20 -mt-14">
+    <div className="max-w-screen bg-[#fbfcff] h-20 -mt-14">
     
     </div>
     {/* .................. */}
-    <div className="relative px-4 py-12 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen md:px-24 lg:px-28 lg:py-8 bg-teal-50">
+    <div className="relative px-4 py-12 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen md:px-24 lg:px-28 lg:py-8 bg-[#fbfcff]">
       
       <div className="relative">
         <div className="grid gap-6  lg:grid-cols-2">
           <div className="grid gap-6  md:grid-cols-2">
-          <div className="max-w-screen flex items-center text-8xl font-bold text-gray-200 bg-teal-50 -mt-4 absolute">Different<br/> from<br/> others</div>
+          <div className="max-w-screen flex items-center text-8xl font-bold text-gray-200 bg-[#fbfcff] -mt-4 absolute">Different<br/> from<br/> others</div>
        
              
               <div className="relative">
