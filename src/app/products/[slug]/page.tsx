@@ -99,11 +99,12 @@ const Product = ({}) => {
             </div>
           </div>
         </div>
-        <div className="product-desc-container">
-          <div className="desc-title">
-            <div className="desc-background">Overview</div>
-            <h2>Product Information</h2>
+        <div className="bg-[#fff] flex flex-col mt-16 pt-8 px-16 pb-24">
+          <div className="flex z-10 border-b-2 border-[#c4c4c4] border-solid relative w-[100%] h-[150px]">
+            <div className="flex z-20 font-extrabold text-9xl leading-[151px] text-[#f2f3f7] opacity-70 w-[100%] h-[100%]">Overview</div>
+            <h2 className="">Product Information</h2>
           </div>
+          
           <div className="desc-details">
             <h4>PRODUCT DETAILS</h4>
             <p>
