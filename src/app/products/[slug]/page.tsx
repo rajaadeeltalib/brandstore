@@ -1,12 +1,16 @@
+"use client"
+
 import React from "react";
 import Image from "next/image";
 import featuredImage from "../../../../public/productone.png";
 import mainImage from "../../../../public/productone.png";
 import Wrapper from "@/app/components/Wrapper";
 
-const Product = ({}) => {
+const Product = () => {
+  
   return (
     <Wrapper>
+      <h1 className="flex justify-center py-6 max-w-screen mx-auto text-4xl font-bold">Product Details</h1>
       <div className="py-16 block">
         <div className="flex justify-between">
           <div className="flex flex-grow flex-shrink gap-8">
@@ -44,11 +48,13 @@ const Product = ({}) => {
                     height="1em"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
+                    
                   >
                     <path d="M872 474H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h720c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"></path>
+                    
                   </svg>
                 </span>
-                <span className="num">1</span>
+                <span className="num" >1</span>
                 <span className="mr-2.5 border-2 bg-[#f1f1f1] border-[#f1f1f1] ">
                   <svg
                     stroke="currentColor"
@@ -100,14 +106,14 @@ const Product = ({}) => {
           </div>
         </div>
         <div className="bg-[#fff] flex flex-col mt-16 pt-8 px-16 pb-24">
-          <div className="flex z-10 border-b-2 border-[#c4c4c4] border-solid relative w-[100%] h-[150px]">
-            <div className="flex z-20 font-extrabold text-9xl leading-[151px] text-[#f2f3f7] opacity-70 w-[100%] h-[100%]">Overview</div>
-            <h2 className="">Product Information</h2>
+          <div className="flex border-b-2 border-[#c4c4c4] border-solid w-[100%] h-[150px] relative">
+            <div className="flex absolute -z- font-extrabold text-9xl leading-[151px] text-[#f2f3f7] opacity-70 w-[100%] h-[100%] -mt-8">Overview</div>
+            <h2 className="relative font-bold text-2xl leading-6 tracking-wider top-11">Product Information</h2>
           </div>
           
-          <div className="desc-details">
-            <h4>PRODUCT DETAILS</h4>
-            <p>
+          <div className="flex text-justify my-16 relative">
+            <h4 className="font-bold z-10 absolute" >PRODUCT DETAILS</h4>
+            <p className="flex ml-72 text-[#212121]">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -117,9 +123,9 @@ const Product = ({}) => {
               sunt in culpa qui officia deserunt mollit anim id est laborum.
             </p>
           </div>
-          <div className="desc-care">
-            <h4>PRODUCT CARE</h4>
-            <ul>
+          <div className="flex">
+            <h4 className="font-bold">PRODUCT CARE</h4>
+            <ul className="ml-44 list-disc">
               <li>Hand wash using cold water.</li>
               <li>Do not using bleach.</li>
               <li>Hang it to dry.</li>
