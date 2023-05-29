@@ -11,7 +11,7 @@ import Wrapper from './Wrapper';
 const Navbar = () => {
   return (
     <Wrapper>
-      <div className='flex flex-col md:flex-row justify-between h-24 items-center'>
+      <div className='flex flex-col md:flex-row justify-between items-center py-[32px]'>
         <div className='mb-4 md:mb-0'>
 <Link href={"/"} >
           <Image src={Logo} alt='Logo' />

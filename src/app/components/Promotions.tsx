@@ -18,14 +18,14 @@ const Promotions = () => {
       <div className="flex justify-between items-center mt-6">
         {/* Section left start */}
         <div className="mt-6">
-          <div className="w-[700px] h-[205px] bg-gray-300 flex justify-between items-center">
+          <div className="w-[500px] h-[205px] bg-[#d6d6d8] flex justify-between items-center">
             <div className="mx-8">
-              <h4 className="text-4xl font-bold ">GET UP TO 60%</h4>
-              <p className="text-lg font-medium">For the summer season</p>
+              <h4 className="text-4xl font-bold ">GET UP TO<br/><span> 60%</span></h4>
+              <p className="text-lg font-medium">For the summer <br/>season</p>
             </div>
             <Image className="-mt-4" src={PromotionOne} alt="Promotion One" />
           </div>
-          <div className="w-[700px] h-[200px] bg-black/90 mt-4 flex items-center justify-center">
+          <div className="w-[500px] h-[200px] bg-black/90 mt-4 flex items-center justify-center">
             <div className="mx-8 text-white flex flex-col items-center justify-center">
               <h4 className="text-4xl font-bold">GET 30% Off</h4>
               <p className="text-md font-normal mt-6">USE PROMO CODE</p>

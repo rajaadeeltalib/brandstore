@@ -8,11 +8,11 @@ const Unique = () => {
   return (
     <>
     <Wrapper>
-    <div className="text-5xl font-bold ml-[700px] w-[600px] mt-36">
-        <div>Unique and Authentic Vintage Designer Jewellery</div>
+    <div className="flex justify-start text-5xl font-bold  mt-36 ml-[600px] w-[45%] leading-[55px]">
+        <h1>Unique and Authentic Vintage Designer Jewellery</h1>
     </div>
     </Wrapper>
-    <div className="max-w-screen bg-[#fbfcff] h-20 -mt-14">
+    <div className="max-w-screen bg-[#fbfcff] h-20 -mt-16">
     
     </div>
     {/* .................. */}
@@ -66,7 +66,7 @@ const Unique = () => {
             <Image src={UniqueOne} alt="Unique One" />
             <div className="items-center pl-6 text-justify leading-relaxed">
            <p>This piece is ethically crafted in our small family-owned workshop in Peru with unmatched attention to detail and care. The Natural color is the actual natural color of the fiber, undyed and 100% traceable.</p>
-           <button className='mt-10 text-lg font-bold bg-black text-white w-48 h-[46px] flex justify-center items-center gap-2'>See All Products</button>
+           <button className='mt-10 text-lg font-medium leading-5 bg-black text-white w-32 h-16 border-2 flex justify-center items-center gap-2'>See All<br/> Products</button>
           </div>
           </div>
           
