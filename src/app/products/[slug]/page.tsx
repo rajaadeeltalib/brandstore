@@ -92,7 +92,7 @@ const Product = async () => {
             </div>
             <div className="flex items-center mx-6">
               <button
-                className="flex text-sm w-[40%] font-semibold leading-5 bg-[#212121] p-2.5 justify-center items-center gap-2 text-[#fff]"
+                className="flex text-sm w-[50%] font-semibold leading-5 bg-[#212121] p-2.5 justify-center items-center gap-2 text-[#fff]"
                 type="button"
               >
                 <CgShoppingCart />
