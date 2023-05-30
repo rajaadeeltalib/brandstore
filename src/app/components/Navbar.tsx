@@ -28,7 +28,7 @@ const Navbar = () => {
           <input
             className="border border-gray-500 w-full md:w-[300px] h-7 rounded-md"
             type="text"
-            placeholder="Search something..."
+            placeholder="What you looking for"
           />
         </div>
         <div className="flex justify-between">
