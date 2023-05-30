@@ -7,6 +7,7 @@ import FeaturedImageTwo from '../../../public/Featured2.webp';
 import FeaturedImageThree from '../../../public/Featured3.webp';
 import FeaturedImageFour from '../../../public/Featured4.webp';
 import Image from "next/image"
+import Link from 'next/link';
 
 const Hero = () => {
   return (
@@ -18,9 +19,11 @@ const Hero = () => {
             {/* <h1 className='text-[66px]  font-bold'>An Industrial Take on Streetwears</h1> */}
             <h1 className='text-6xl font-bold leading-[55px] tracking-[.03em] text-[#212121]'>An Industrial Take on Streetwears</h1>
             <p className='font-normal text-base leading-6 text-[#666] block w-[50%]'>Anyone can beat you but no one can beat your outfit as long as you wear Dine outfits.</p>
+            <Link href={"/products"}>
             <div className='flex text-4xl'>            
             <button className='text-lg font-semibold leading-5 bg-[#212121] text-white w-[30%] h-[80px] flex justify-center items-center gap-2'><BiCart className='text-2xl'/>Start<br/> Shopping</button>
             </div>
+            </Link>
             <div className='flex gap-4 mt-12'>
               <Image src={FeaturedImageOne} height={100} width={100}  alt='Featured Image 1' />
               <Image src={FeaturedImageTwo} height={100} width={100} alt='Featured Image 2' />

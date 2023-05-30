@@ -5,6 +5,8 @@ import Image from "next/image";
 import featuredImage from "../../../../public/productone.png";
 import mainImage from "../../../../public/productone.png";
 import Wrapper from "@/app/components/Wrapper";
+import {BiMinus} from "react-icons/bi"
+import {BsPlusLg} from "react-icons/bs"
 
 const Product = () => {
   
@@ -40,36 +42,11 @@ const Product = () => {
               <h4 className="font-bold text-lg">Quantity: </h4>
               <div className="flex justify-center items-center  cursor-pointer rounded-[50%] gap-4">
                 <span className="mr-2.5 border-2 bg-[#f1f1f1] border-[#f1f1f1] ">
-                  <svg
-                    stroke="currentColor"
-                    fill="currentColor"
-                    stroke-width="0"
-                    viewBox="0 0 1024 1024"
-                    height="1em"
-                    width="1em"
-                    xmlns="http://www.w3.org/2000/svg"
-                    
-                  >
-                    <path d="M872 474H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h720c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"></path>
-                    
-                  </svg>
+                <BiMinus />
                 </span>
                 <span className="num" >1</span>
                 <span className="mr-2.5 border-2 bg-[#f1f1f1] border-[#f1f1f1] ">
-                  <svg
-                    stroke="currentColor"
-                    fill="currentColor"
-                    stroke-width="0"
-                    viewBox="0 0 1024 1024"
-                    version="1.1"
-                    height="1em"
-                    width="1em"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <defs></defs>
-                    <path d="M474 152m8 0l60 0q8 0 8 8l0 704q0 8-8 8l-60 0q-8 0-8-8l0-704q0-8 8-8Z"></path>
-                    <path d="M168 474m8 0l672 0q8 0 8 8l0 60q0 8-8 8l-672 0q-8 0-8-8l0-60q0-8 8-8Z"></path>
-                  </svg>
+                  <BsPlusLg />
                 </span>
               </div>
             </div>
@@ -125,7 +102,7 @@ const Product = () => {
           </div>
           <div className="flex">
             <h4 className="font-bold">PRODUCT CARE</h4>
-            <ul className="ml-44 list-disc">
+            <ul className="ml-44 list-disc font-bold">
               <li>Hand wash using cold water.</li>
               <li>Do not using bleach.</li>
               <li>Hang it to dry.</li>

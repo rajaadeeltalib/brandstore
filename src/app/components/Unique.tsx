@@ -1,6 +1,7 @@
 import Wrapper from "./Wrapper"
 import Image from "next/image"
 import UniqueOne from "../../../public/uniqueone.webp"
+import Link from "next/link"
 
 
 const Unique = () => {
@@ -66,7 +67,9 @@ const Unique = () => {
             <Image src={UniqueOne} alt="Unique One" />
             <div className="items-center pl-6 text-justify leading-relaxed">
            <p>This piece is ethically crafted in our small family-owned workshop in Peru with unmatched attention to detail and care. The Natural color is the actual natural color of the fiber, undyed and 100% traceable.</p>
+           <Link href={"/products"}>
            <button className='mt-10 text-lg font-medium leading-5 bg-black text-white w-32 h-16 border-2 flex justify-center items-center gap-2'>See All<br/> Products</button>
+           </Link>
           </div>
           </div>
           
