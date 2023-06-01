@@ -1,14 +1,14 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import featuredImage from "../../../../public/productone.png";
-import mainImage from "../../../../public/productone.png";
+// import featuredImage from "../../../../public/productone.png";
+// import mainImage from "../../../../public/productone.png";
 import Wrapper from "@/app/components/Wrapper";
 import { BiMinus } from "react-icons/bi";
 import { BsPlusLg } from "react-icons/bs";
 import { CgShoppingCart } from "react-icons/cg";
 import { AiOutlineHeart } from "react-icons/ai";
-import { useSearchParams } from "next/navigation";
+
 
 async function getSingleProducts(slug: any) {
   const res = await fetch(
@@ -25,10 +25,10 @@ async function getSingleProducts(slug: any) {
 
   return res.json();
 }
-const Product = async () => {
-  const searchParams = useSearchParams();
 
-  let d = await getSingleProducts(searchParams.get("data"));
+const Product = async (context: any) => {
+  
+  let d = await getSingleProducts(context.params.product);
   console.log("DDD", d);
   return (
     <Wrapper>
@@ -40,15 +40,15 @@ const Product = async () => {
           <div className="flex flex-grow flex-shrink gap-8">
             <div className="flex flex-col gap-4">
               <Image
-                src={featuredImage}
-                alt=""
+                src={"https:" + d.includes.Asset[0].fields.file.url}
+                alt="Small Image"
                 width={150}
                 height={150}
                 className="small-image"
               />
             </div>
             <div className="block">
-              <Image src={mainImage} width={650} height={400} alt="" />
+              <Image src={"https:" + d.includes.Asset[0].fields.file.url} width={650} height={400} alt="" />
             </div>
           </div>
           <div className="flex flex-col flex-grow gap-10 mt-16">
@@ -56,7 +56,9 @@ const Product = async () => {
               <h3 className="font-normal text-3xl leading-8 tracking-wider">
                 {d.items[0]["fields"].title}
               </h3>
-              <span className="font-semibold text-xl opacity-30">{d.items[0]["fields"].subCategory}</span>
+              <span className="font-semibold text-xl opacity-30">
+                {d.items[0]["fields"].subCategory}
+              </span>
             </div>
             <div className="block font-bold mx-6 text-base tracking-wider ">
               <p>SELECT SIZE</p>
@@ -99,7 +101,7 @@ const Product = async () => {
                 Add to Cart
               </button>
               <p className="font-bold text-2xl leading-8 tracking-widest text-[#212121] pl-4">
-              {d.items[0]["fields"].price}
+                {d.items[0]["fields"].price}
               </p>
             </div>
             <div className="flex items-center mx-6">

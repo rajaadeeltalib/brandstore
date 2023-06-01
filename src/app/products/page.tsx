@@ -33,9 +33,10 @@ const Products = async () => {
               <div key={elem.sys.id}>
                 <Link
                   href={{
-                    pathname: `/products/${p.fields.slug}`,
-                    query: { data: p.fields.slug }, // the data
+                    pathname: `/products/[slug]`,
+                    query: { data: p.fields.slug }, 
                   }}
+                  as={`/products/${p.fields.slug}`}
                 >
                   {p.fields.image.sys.id == elem.sys.id ? (
                     <Image
