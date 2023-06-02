@@ -1,11 +1,27 @@
+"use client"
 import Image from "next/image";
 import {BiMinus} from "react-icons/bi"
 import {BsPlusLg} from "react-icons/bs"
 import {RiDeleteBinLine} from "react-icons/ri"
+import React, {useState} from "react";
 
 import ProductOne from "../../../public/productone.png";
 
-const cart = () => {
+const Cart = () => {
+  const [count, setCount] = useState(1)
+
+function increaseCount(){
+  setCount(count + 1)
+}
+function decreaseCount(){
+  if(count === 1){
+
+  }
+  else{
+
+    setCount(count - 1)
+  }
+}
   return (
     
       <main className="mx-32">
@@ -38,15 +54,19 @@ const cart = () => {
                     <span className="leading-5 font-bold text-lg tracking-widest">
                       $195
                     </span>
-                    <div className="flex justify-between items-center gap-6">
-                      <span className="border bg-[#f1f1f1] cursor-pointer">
-                      <BiMinus />
-                      </span>
-                      <span className="num">1</span>
-                      <span className="border bg-[#f1f1f1] cursor-pointer">
-                        <BsPlusLg />
-                      </span>
-                    </div>
+                    <div className="flex mx-6">
+            <p className="font-semibold text-xl text-gray-800">Quantity:</p>
+            <div className="flex gap-2 mx-6 items-center text-xl">
+              <div 
+              onClick={decreaseCount}
+              className="flex justify-center items-center text-2xl w-8 8 rounded-full bg-gray-200 cursor-pointer">-</div>
+              <p>{count}</p>
+              <div 
+              onClick={increaseCount}
+              className="flex justify-center items-center text-2xl w-8 h-8 rounded-full border border-black cursor-pointer" >+</div>
+            </div>
+            
+           </div>
                   </div>
                 </div>
               </div>
@@ -74,4 +94,4 @@ const cart = () => {
   );
 };
 
-export default cart;
+export default Cart;

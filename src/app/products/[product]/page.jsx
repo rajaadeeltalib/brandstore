@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 // import featuredImage from "../../../../public/productone.png";
 // import mainImage from "../../../../public/productone.png";
@@ -8,9 +8,10 @@ import { BiMinus } from "react-icons/bi";
 import { BsPlusLg } from "react-icons/bs";
 import { CgShoppingCart } from "react-icons/cg";
 import { AiOutlineHeart } from "react-icons/ai";
+import { useRecoilState } from "recoil";
+import { cartState } from "../../../../atoms/cartState";
 
-
-async function getSingleProducts(slug: any) {
+async function getSingleProducts(slug) {
   const res = await fetch(
     `https://cdn.contentful.com/spaces/${process.env.SPACE_ID}/entries?access_token=${process.env.CONTENTFUL_ACCESS_KEY}&content_type=products&fields.slug=` +
       slug,
@@ -26,10 +27,29 @@ async function getSingleProducts(slug: any) {
   return res.json();
 }
 
-const Product = async (context: any) => {
-  
+const Product = async (context) => {
+  const [count, setCount] = useState(1);
+  const [cartItem, setCartItem] = useRecoilState(cartState)
   let d = await getSingleProducts(context.params.product);
   console.log("DDD", d);
+
+  const addItemToCart = ()=>{
+    setCartItem(prevState => [...prevState, d])
+  }
+
+
+  function increaseCount() {
+    setCount(count + 1);
+    console.log(count + 1);
+    // alert("test");
+  }
+  function decreaseCount() {
+    if (count === 1) {
+    } else {
+      setCount(count - 1);
+    }
+  }
+
   return (
     <Wrapper>
       <h1 className="flex justify-center py-6 max-w-screen mx-auto text-4xl font-bold">
@@ -48,7 +68,12 @@ const Product = async (context: any) => {
               />
             </div>
             <div className="block">
-              <Image src={"https:" + d.includes.Asset[0].fields.file.url} width={650} height={400} alt="" />
+              <Image
+                src={"https:" + d.includes.Asset[0].fields.file.url}
+                width={650}
+                height={400}
+                alt=""
+              />
             </div>
           </div>
           <div className="flex flex-col flex-grow gap-10 mt-16">
@@ -80,22 +105,23 @@ const Product = async (context: any) => {
                 </li>
               </ul>
             </div>
-            <div className="flex gap-8 mx-6 ">
-              <h4 className="font-bold text-lg">Quantity: </h4>
-              <div className="flex justify-center items-center  cursor-pointer rounded-[50%] gap-4">
-                <span className="mr-2.5 border-2 bg-[#f1f1f1] border-[#f1f1f1] ">
-                  <BiMinus />
-                </span>
-                <span className="num">1</span>
-                <span className="mr-2.5 border-2 bg-[#f1f1f1] border-[#f1f1f1] ">
-                  <BsPlusLg />
-                </span>
+            <div className="flex mx-6">
+              <p className="font-semibold text-xl text-gray-800">Quantity:</p>
+              <div className="flex gap-2 mx-6 items-center text-xl">
+                <div className="flex justify-center items-center text-2xl w-8 h-8 rounded-full bg-gray-200 cursor-pointer">
+                  <BiMinus onClick={decreaseCount} />
+                </div>
+                <p>{count}</p>
+                <div className="flex justify-center items-center text-2xl w-8 h-8 rounded-full border border-black cursor-pointer">
+                  <BsPlusLg onClick={increaseCount} />
+                </div>
               </div>
             </div>
             <div className="flex items-center mx-6">
               <button
                 className="flex text-sm w-[50%] font-semibold leading-5 bg-[#212121] p-2.5 justify-center items-center gap-2 text-[#fff]"
                 type="button"
+                onClick={addItemToCart}
               >
                 <CgShoppingCart />
                 Add to Cart
