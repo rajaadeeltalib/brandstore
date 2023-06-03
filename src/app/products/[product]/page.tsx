@@ -8,47 +8,32 @@ import { BiMinus } from "react-icons/bi";
 import { BsPlusLg } from "react-icons/bs";
 import { CgShoppingCart } from "react-icons/cg";
 import { AiOutlineHeart } from "react-icons/ai";
+import {client} from "../../../lib/sanityClient";
+import { Image as IImage, Slug } from "sanity";
+import { urlForImage } from "../../../../sanity/lib/image";
 
 
-
-async function getSingleProducts(slug: any) {
-  const res = await fetch(
-    `https://cdn.contentful.com/spaces/${process.env.SPACE_ID}/entries?access_token=${process.env.CONTENTFUL_ACCESS_KEY}&content_type=products&fields.slug=` +
-      slug,
-    { cache: "no-store" }
-  );
+async function getSingleProducts() {
+  const res = await client.fetch(`*[_type=='product']`)
 
   // Recommendation: handle errors
-  if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error("Failed to fetch data");
-  }
+  // if (!res.ok) {
+  //   // This will activate the closest `error.js` Error Boundary
+  //   throw new Error("Failed to fetch data");
+  // }
 
-  return res.json();
+  return res
 }
 
 
-const Product = async (context: any) => {
-  const [count, setCount] = useState(1);
+const Product = async () => {
+  
  
-  let d = await getSingleProducts(context.params.product);
-  console.log("DDD", d);
+  const d = await getSingleProducts();
+  console.log("DDD", d[0].image);
 
   
-
-  function increaseCount() {
-    setCount(count + 1);
-    console.log(count + 1);
-    // alert("test");
-  }
-  function decreaseCount() {
-    if (count === 1) {
-    } else {
-      setCount(count - 1);
-    }
-  }
-
-  return (
+return (
     <Wrapper>
       <h1 className="flex justify-center py-6 max-w-screen mx-auto text-4xl font-bold">
         Product Details
@@ -58,7 +43,7 @@ const Product = async (context: any) => {
           <div className="flex flex-grow flex-shrink gap-8">
             <div className="flex flex-col gap-4">
               <Image
-                src={"https:" + d.includes.Asset[0].fields.file.url}
+                src={""}
                 alt="Small Image"
                 width={150}
                 height={150}
@@ -67,7 +52,7 @@ const Product = async (context: any) => {
             </div>
             <div className="block">
               <Image
-                src={"https:" + d.includes.Asset[0].fields.file.url}
+                src={""}
                 width={650}
                 height={400}
                 alt=""
@@ -77,10 +62,10 @@ const Product = async (context: any) => {
           <div className="flex flex-col flex-grow gap-10 mt-16">
             <div className="block mx-6">
               <h3 className="font-normal text-3xl leading-8 tracking-wider">
-                {d.items[0]["fields"].title}
+                {d.title}
               </h3>
               <span className="font-semibold text-xl opacity-30">
-                {d.items[0]["fields"].subCategory}
+                {d.subCategory}
               </span>
             </div>
             <div className="block font-bold mx-6 text-base tracking-wider ">
@@ -107,11 +92,11 @@ const Product = async (context: any) => {
               <p className="font-semibold text-xl text-gray-800">Quantity:</p>
               <div className="flex gap-2 mx-6 items-center text-xl">
                 <div className="flex justify-center items-center text-2xl w-8 h-8 rounded-full bg-gray-200 cursor-pointer">
-                  <BiMinus onClick={decreaseCount} />
+                  <BiMinus />
                 </div>
-                <p>{count}</p>
+                <p>1</p>
                 <div className="flex justify-center items-center text-2xl w-8 h-8 rounded-full border border-black cursor-pointer">
-                  <BsPlusLg onClick={increaseCount} />
+                  <BsPlusLg  />
                 </div>
               </div>
             </div>
@@ -124,7 +109,7 @@ const Product = async (context: any) => {
                 Add to Cart
               </button>
               <p className="font-bold text-2xl leading-8 tracking-widest text-[#212121] pl-4">
-                {d.items[0]["fields"].price}
+                {d.price}
               </p>
             </div>
             <div className="flex items-center mx-6">

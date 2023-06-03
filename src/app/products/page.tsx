@@ -1,65 +1,69 @@
 import Image from "next/image";
 import Link from "next/link";
-
 import Wrapper from "../components/Wrapper";
+import {client} from "../../lib/sanityClient";
+import { Image as IImage, Slug } from "sanity";
+import { urlForImage } from "../../../sanity/lib/image";
 
-async function getProducts() {
-  const res = await fetch(
-    `https://cdn.contentful.com/spaces/${process.env.SPACE_ID}/entries?access_token=${process.env.CONTENTFUL_ACCESS_KEY}&content_type=products`,
-    { cache: "no-store" }
-  );
+export const getProducts = async () => {
+  const res = await client.fetch(`*[_type=='product']`);
 
   // Recommendation: handle errors
-  if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error("Failed to fetch data");
-  }
+  // if (!res.ok) {
+  //   // This will activate the closest `error.js` Error Boundary
+  //   throw new Error("Failed to fetch data");
+  // }
 
-  return res.json();
+  return res
+}
+
+interface IProduct {
+  title: string,
+  category: string,
+  subcategory: string,
+  price: number,
+  image: IImage,
+  slug: Slug,
 }
 
 const Products = async () => {
-  const product = await getProducts();
-
+  const product:IProduct[] = await getProducts();
+ console.log(product)
+ 
   return (
     <Wrapper>
       <h1 className="flex justify-center py-16 max-w-screen mx-auto text-4xl font-bold">
         All Products
       </h1>
       <div className="grid grid-cols-4 gap-16">
-        {product.items.map((p: any, i: number) => (
+        {product.map((p: any, i: number) => (
           <div key={i}>
-            {product.includes.Asset.map((elem: any) => (
-              <div key={elem.sys.id}>
+            
+              <div >
                 <Link
                   href={{
-                    pathname: `/products/[slug]`,
-                    query: { data: p.fields.slug }, 
+                    pathname: `/products/[Slug]`,
+                    query: { data: p.Slug }, 
                   }}
-                  as={`/products/${p.fields.slug}`}
+                  as={`/products/${p.Slug}`}
                 >
-                  {p.fields.image.sys.id == elem.sys.id ? (
-                    <Image
-                      src={"https:" + elem.fields.file.url}
+                  <Image
+                      src={urlForImage(p.image).url()}
                       alt="Product 1"
                       width={400}
                       height={400}
-                    />
-                  ) : (
-                    <div></div>
-                  )}
+                    />                  
                 </Link>
               </div>
-            ))}
-
-            <h3 className="text-lg font-bold">{p.fields.title}</h3>
+            <h3 className="text-lg font-bold">{p.title}</h3>
             <h4 className="text-lg font-semibold text-gray-500">
-              {p.fields.subCategory}
+              {p.subcategory}
             </h4>
-            <p className="text-2xl font-semibold">{p.fields.price}</p>
+            <p className="text-2xl font-semibold">${p.price}</p>
           </div>
         ))}
       </div>
+      
     </Wrapper>
   );
 };
