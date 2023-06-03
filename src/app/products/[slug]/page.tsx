@@ -6,6 +6,7 @@ import featuredImage from "../../../../public/productone.png";
 import mainImage from "../../../../public/productone.png";
 import Wrapper from "@/app/components/Wrapper";
 
+
 const Product = () => {
   
   return (
