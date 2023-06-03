@@ -8,10 +8,9 @@ import { BiMinus } from "react-icons/bi";
 import { BsPlusLg } from "react-icons/bs";
 import { CgShoppingCart } from "react-icons/cg";
 import { AiOutlineHeart } from "react-icons/ai";
-import { useRecoilState } from "recoil";
-import { cartState } from "../../../../atoms/cartState";
 
-async function getSingleProducts(slug) {
+
+async function getSingleProducts(slug: any) {
   const res = await fetch(
     `https://cdn.contentful.com/spaces/${process.env.SPACE_ID}/entries?access_token=${process.env.CONTENTFUL_ACCESS_KEY}&content_type=products&fields.slug=` +
       slug,
@@ -27,16 +26,13 @@ async function getSingleProducts(slug) {
   return res.json();
 }
 
-const Product = async (context) => {
+const Product = async (context: any) => {
   const [count, setCount] = useState(1);
-  const [cartItem, setCartItem] = useRecoilState(cartState)
+ 
   let d = await getSingleProducts(context.params.product);
   console.log("DDD", d);
 
-  const addItemToCart = ()=>{
-    setCartItem(prevState => [...prevState, d])
-  }
-
+  
 
   function increaseCount() {
     setCount(count + 1);
@@ -121,7 +117,6 @@ const Product = async (context) => {
               <button
                 className="flex text-sm w-[50%] font-semibold leading-5 bg-[#212121] p-2.5 justify-center items-center gap-2 text-[#fff]"
                 type="button"
-                onClick={addItemToCart}
               >
                 <CgShoppingCart />
                 Add to Cart
