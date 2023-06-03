@@ -10,6 +10,7 @@ import { CgShoppingCart } from "react-icons/cg";
 import { AiOutlineHeart } from "react-icons/ai";
 
 
+
 async function getSingleProducts(slug: any) {
   const res = await fetch(
     `https://cdn.contentful.com/spaces/${process.env.SPACE_ID}/entries?access_token=${process.env.CONTENTFUL_ACCESS_KEY}&content_type=products&fields.slug=` +
@@ -26,6 +27,7 @@ async function getSingleProducts(slug: any) {
   return res.json();
 }
 
+const Product = async (context: any) => {
 const Product = async (context: any) => {
   const [count, setCount] = useState(1);
  

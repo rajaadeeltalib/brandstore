@@ -1,5 +1,4 @@
 import Hero from "./components/Hero";
-import Navbar from "./components/Navbar";
 import Newsletter from "./components/Newsletter";
 import Products from "./components/Products";
 import Promotions from "./components/Promotions";
