@@ -42,10 +42,10 @@ const Products = async () => {
               <div >
                 <Link
                   href={{
-                    pathname: `/products/[Slug]`,
-                    query: { data: p.Slug }, 
+                    pathname: `/products/[product]`,
+                    query: { data: p.Slug.current }, 
                   }}
-                  as={`/products/${p.Slug}`}
+                  as={`/products/${p.Slug.current}`}
                 >
                   <Image
                       src={urlForImage(p.image).url()}

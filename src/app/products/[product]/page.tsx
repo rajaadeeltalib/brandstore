@@ -1,4 +1,4 @@
-"use client";
+
 import React, { useState } from "react";
 import Image from "next/image";
 // import featuredImage from "../../../../public/productone.png";
@@ -11,10 +11,19 @@ import { AiOutlineHeart } from "react-icons/ai";
 import {client} from "../../../lib/sanityClient";
 import { Image as IImage, Slug } from "sanity";
 import { urlForImage } from "../../../../sanity/lib/image";
+import ProductCard from "@/app/components/ProductCard";
 
 
 async function getSingleProducts() {
-  const res = await client.fetch(`*[_type=='product']`)
+  const res = await client.fetch(`*[_type=='product'] {
+    _id,
+    title,
+    Slug,
+    category,
+    subcategory,
+    price,
+    image
+  }`)
 
   // Recommendation: handle errors
   // if (!res.ok) {
@@ -26,11 +35,11 @@ async function getSingleProducts() {
 }
 
 
-const Product = async () => {
+const Product:any = async (data: any) => {
   
  
   const d = await getSingleProducts();
-  console.log("DDD", d[0].image);
+  console.log("DDD", d);
 
   
 return (
@@ -100,19 +109,16 @@ return (
                 </div>
               </div>
             </div>
-            <div className="flex items-center mx-6">
-              <button
-                className="flex text-sm w-[50%] font-semibold leading-5 bg-[#212121] p-2.5 justify-center items-center gap-2 text-[#fff]"
-                type="button"
-              >
-                <CgShoppingCart />
-                Add to Cart
-              </button>
-              <p className="font-bold text-2xl leading-8 tracking-widest text-[#212121] pl-4">
+            <ProductCard  />
+            
+            <div>
+            <p className="font-bold text-2xl leading-8 tracking-widest text-[#212121] pl-4">
                 {d.price}
               </p>
             </div>
-            <div className="flex items-center mx-6">
+            
+
+            {/* <div className="flex items-center mx-6">
               <button
                 className="flex text-sm w-[77%] font-semibold leading-5 bg-[#212121] p-2.5 justify-center items-center gap-2 text-[#fff]"
                 type="button"
@@ -120,7 +126,7 @@ return (
                 <AiOutlineHeart />
                 Add to Whishlist
               </button>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="bg-[#fff] flex flex-col mt-16 pt-8 px-16 pb-24">
