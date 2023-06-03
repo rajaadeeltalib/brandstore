@@ -21,13 +21,16 @@ const Male = async() => {
   return (
     <Wrapper>
     <h1 className="flex justify-center py-16 max-w-screen mx-auto text-4xl font-bold">All Male Products</h1>
-    <div className="grid grid-cols-4 gap-24">
+    <div className="grid grid-cols-4 gap-16">
       {product.items.map((p:any, i:number)=>(
       <div key={i}>
         {product.includes.Asset.map((elem:any)=>(
           
       <div key={elem.sys.id}>
-      <Link href={"/products/female"}>
+      <Link href={{
+                    pathname: `/products/${p.fields.slug}`,
+                    query: { data: p.fields.slug }, // the data
+                  }}>
         {p.fields.image.sys.id == elem.sys.id ?
       
       <Image src={"https:" + elem.fields.file.url} alt="Product 1" width={400} height={400}/> : <div></div>}</Link>

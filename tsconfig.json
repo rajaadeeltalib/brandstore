@@ -28,7 +28,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/app/products/[slug]"
-  ],
+    "src/app/products/[product]"
+, "redux/store.jsx"  ],
   "exclude": ["node_modules"]
 }
