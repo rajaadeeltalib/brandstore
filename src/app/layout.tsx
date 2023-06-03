@@ -1,4 +1,4 @@
-"use client"
+
 import { Footer } from './components/Footer'
 import Navbar from './components/Navbar'
 import './globals.css'
@@ -19,11 +19,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-
-<<<<<<< HEAD
     
-=======
->>>>>>> d725af4bfdcdedd8d823288e2082c60442694970
       <html lang="en">
       <body className={inter.className}>
         <Navbar />
@@ -31,10 +27,6 @@ export default function RootLayout({
         <Footer />
         </body>
     </html>
-<<<<<<< HEAD
-=======
-    
->>>>>>> d725af4bfdcdedd8d823288e2082c60442694970
    
   )
 }

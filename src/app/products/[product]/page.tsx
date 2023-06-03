@@ -27,7 +27,7 @@ async function getSingleProducts(slug: any) {
   return res.json();
 }
 
-const Product = async (context: any) => {
+
 const Product = async (context: any) => {
   const [count, setCount] = useState(1);
  
