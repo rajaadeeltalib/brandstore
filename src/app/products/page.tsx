@@ -5,7 +5,7 @@ import {client} from "../../lib/sanityClient";
 
 import { urlForImage } from "../../../sanity/lib/image";
 
-export const getProducts = async () => {
+const getProducts = async () => {
   const res = await client.fetch(`*[_type=='product']`);
 
   // Recommendation: handle errors
