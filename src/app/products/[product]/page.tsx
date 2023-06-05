@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import Image from "next/image";
 // import featuredImage from "../../../../public/productone.png";
@@ -8,22 +7,15 @@ import { BiMinus } from "react-icons/bi";
 import { BsPlusLg } from "react-icons/bs";
 import { CgShoppingCart } from "react-icons/cg";
 import { AiOutlineHeart } from "react-icons/ai";
-import {client} from "../../../lib/sanityClient";
+import { client } from "../../../lib/sanityClient";
 import { Image as IImage, Slug } from "sanity";
 import { urlForImage } from "../../../../sanity/lib/image";
 import ProductCard from "@/app/components/ProductCard";
 
-
-async function getSingleProducts() {
-  const res = await client.fetch(`*[_type=='product'] {
-    _id,
-    title,
-    Slug,
-    category,
-    subcategory,
-    price,
-    image
-  }`)
+async function getSingleProducts(Slug: any) {
+  
+  const res =
+    await client.fetch(`*[_type=='product' && Slug.current == '${Slug.params.product}']`);
 
   // Recommendation: handle errors
   // if (!res.ok) {
@@ -31,18 +23,14 @@ async function getSingleProducts() {
   //   throw new Error("Failed to fetch data");
   // }
 
-  return res
+  return res;
 }
 
-
-const Product:any = async (data: any) => {
-  
- 
-  const d = await getSingleProducts();
+const Product: any = async (Slug: any) => {
+  const d = await getSingleProducts(Slug);
   console.log("DDD", d);
 
-  
-return (
+  return (
     <Wrapper>
       <h1 className="flex justify-center py-6 max-w-screen mx-auto text-4xl font-bold">
         Product Details
@@ -52,7 +40,7 @@ return (
           <div className="flex flex-grow flex-shrink gap-8">
             <div className="flex flex-col gap-4">
               <Image
-                src={""}
+                src={urlForImage(d[0].image).url()}
                 alt="Small Image"
                 width={150}
                 height={150}
@@ -60,21 +48,16 @@ return (
               />
             </div>
             <div className="block">
-              <Image
-                src={""}
-                width={650}
-                height={400}
-                alt=""
-              />
+              <Image src={urlForImage(d[0].image).url()} width={650} height={400} alt="Big Image" />
             </div>
           </div>
-          <div className="flex flex-col flex-grow gap-10 mt-16">
+          <div className="flex flex-col flex-grow gap-10 mt-16 w-[550px]">
             <div className="block mx-6">
               <h3 className="font-normal text-3xl leading-8 tracking-wider">
-                {d.title}
+                {d[0].title}
               </h3>
               <span className="font-semibold text-xl opacity-30">
-                {d.subCategory}
+                {d[0].subcategory}
               </span>
             </div>
             <div className="block font-bold mx-6 text-base tracking-wider ">
@@ -105,18 +88,17 @@ return (
                 </div>
                 <p>1</p>
                 <div className="flex justify-center items-center text-2xl w-8 h-8 rounded-full border border-black cursor-pointer">
-                  <BsPlusLg  />
+                  <BsPlusLg />
                 </div>
               </div>
             </div>
-            <ProductCard  />
-            
+
+            <ProductCard />
             <div>
-            <p className="font-bold text-2xl leading-8 tracking-widest text-[#212121] pl-4">
-                {d.price}
+              <p className="font-bold text-2xl leading-8 tracking-widest text-[#212121] pl-6">
+              ${d[0].price}.00
               </p>
             </div>
-            
 
             {/* <div className="flex items-center mx-6">
               <button

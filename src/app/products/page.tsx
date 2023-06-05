@@ -42,7 +42,7 @@ const Products = async () => {
               <div >
                 <Link
                   href={{
-                    pathname: `/products/[product]`,
+                    pathname: `/products/[Slug.current]`,
                     query: { data: p.Slug.current }, 
                   }}
                   as={`/products/${p.Slug.current}`}
