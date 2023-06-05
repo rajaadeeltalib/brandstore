@@ -5,7 +5,7 @@ import {client} from "../../lib/sanityClient";
 import { Image as IImage, Slug } from "sanity";
 import { urlForImage } from "../../../sanity/lib/image";
 
-export const getProducts = async () => {
+export const getFemaleProducts = async () => {
   const res = await client.fetch(`*[_type=='product' && category=='Female']`);
 
   // Recommendation: handle errors
@@ -17,17 +17,10 @@ export const getProducts = async () => {
   return res
 }
 
-interface IProduct {
-  title: string,
-  category: string,
-  subcategory: string,
-  price: number,
-  image: IImage,
-  slug: Slug,
-}
 
-const Products = async () => {
-  const product:IProduct[] = await getProducts();
+
+const FemaleProducts = async () => {
+  const product = await getFemaleProducts();
 
  
   return (
@@ -68,4 +61,4 @@ const Products = async () => {
   );
 };
 
-export default Products;
+export default FemaleProducts;

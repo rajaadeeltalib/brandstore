@@ -17,17 +17,10 @@ export const getProducts = async () => {
   return res
 }
 
-interface IProduct {
-  title: string,
-  category: string,
-  subcategory: string,
-  price: number,
-  image: IImage,
-  slug: Slug,
-}
+
 
 const Products = async () => {
-  const product:IProduct[] = await getProducts();
+  const product = await getProducts();
 
  
   return (
