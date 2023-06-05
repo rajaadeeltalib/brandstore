@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Wrapper from "../components/Wrapper";
 import {client} from "../../lib/sanityClient";
-import { Image as IImage, Slug } from "sanity";
+
 import { urlForImage } from "../../../sanity/lib/image";
 
 export const getProducts = async () => {

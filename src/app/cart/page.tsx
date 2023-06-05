@@ -1,7 +1,7 @@
 "use client"
 import Image from "next/image";
-import {BiMinus} from "react-icons/bi"
-import {BsPlusLg} from "react-icons/bs"
+// import {BiMinus} from "react-icons/bi"
+// import {BsPlusLg} from "react-icons/bs"
 import {RiDeleteBinLine} from "react-icons/ri"
 import React, {useState} from "react";
 
