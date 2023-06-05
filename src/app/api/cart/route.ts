@@ -3,7 +3,7 @@ import {db, cartTable} from "../../../lib/drizzle"
 import {v4 as uuid} from "uuid"
 import { cookies } from "next/headers";
 
-export const GET = async(request: Request)=>{
+export const GET = async(request: NextRequest)=>{
 try {
     const res = await db.select().from(cartTable)
     return NextResponse.json({res})
@@ -13,14 +13,15 @@ try {
 }
 }
 
-export const POST = async(request: Request)=>{
+export const POST = async(request: NextRequest)=>{
 
     const req = await request.json();
 
     const uid = uuid();
     const setCookies = cookies();
+    const user_id = cookies().get("user_id")
     
-    if(!cookies().has("user_id")){
+    if(!user_id){
         setCookies.set("user_id", uid);
 
     }

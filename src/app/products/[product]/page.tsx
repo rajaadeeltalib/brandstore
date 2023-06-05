@@ -5,10 +5,10 @@ import Image from "next/image";
 import Wrapper from "@/app/components/Wrapper";
 import { BiMinus } from "react-icons/bi";
 import { BsPlusLg } from "react-icons/bs";
-import { CgShoppingCart } from "react-icons/cg";
-import { AiOutlineHeart } from "react-icons/ai";
+// import { CgShoppingCart } from "react-icons/cg";
+// import { AiOutlineHeart } from "react-icons/ai";
 import { client } from "../../../lib/sanityClient";
-import { Image as IImage, Slug } from "sanity";
+// import { Image as IImage, Slug } from "sanity";
 import { urlForImage } from "../../../../sanity/lib/image";
 import ProductCard from "@/app/components/ProductCard";
 
@@ -93,7 +93,7 @@ const Product: any = async (Slug: any) => {
               </div>
             </div>
 
-            <ProductCard />
+            <ProductCard item={d}/>
             <div>
               <p className="font-bold text-2xl leading-8 tracking-widest text-[#212121] pl-6">
               ${d[0].price}.00

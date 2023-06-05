@@ -28,7 +28,7 @@ interface IProduct {
 
 const Products = async () => {
   const product:IProduct[] = await getProducts();
- console.log(product)
+
  
   return (
     <Wrapper>
@@ -36,30 +36,30 @@ const Products = async () => {
         All Products
       </h1>
       <div className="grid grid-cols-4 gap-16">
-        {product.map((p: any, i: number) => (
-          <div key={i}>
+        {product.map((item: any, index: number) => (
+          <div key={index}>
             
               <div >
                 <Link
                   href={{
                     pathname: `/products/[Slug.current]`,
-                    query: { data: p.Slug.current }, 
+                    query: { data: item.Slug.current }, 
                   }}
-                  as={`/products/${p.Slug.current}`}
+                  as={`/products/${item.Slug.current}`}
                 >
                   <Image
-                      src={urlForImage(p.image).url()}
-                      alt="Product 1"
+                      src={urlForImage(item.image).url()}
+                      alt="Product Image"
                       width={400}
                       height={400}
                     />                  
                 </Link>
               </div>
-            <h3 className="text-lg font-bold">{p.title}</h3>
+            <h3 className="text-lg font-bold">{item.title}</h3>
             <h4 className="text-lg font-semibold text-gray-500">
-              {p.subcategory}
+              {item.subcategory}
             </h4>
-            <p className="text-2xl font-semibold">${p.price}</p>
+            <p className="text-2xl font-semibold">${item.price}</p>
           </div>
         ))}
       </div>
