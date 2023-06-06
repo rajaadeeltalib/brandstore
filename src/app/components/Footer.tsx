@@ -6,7 +6,7 @@ import Link from "next/link"
 
 export const Footer = () => {
     return (
-      <div className="px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+      <div className="px-8 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
         <div className="grid gap-16 row-gap-10 mb-8 lg:grid-cols-6">
           <div className="md:max-w-md lg:col-span-2">
             <Image className="" src={Logo} alt="Logo" height={300} width={200} />
@@ -93,7 +93,7 @@ export const Footer = () => {
                               
               </ul>
             </div>
-            <div className="pl-20">
+            <div className="pl-16">
               <p className="font-semibold tracking-wide text-gray-800">Contact</p>
               <ul className="mt-2 space-y-2">
                 <li>
@@ -118,7 +118,7 @@ export const Footer = () => {
             
           </div>
         </div>
-        <div className="flex flex-col justify-between pt-5 pb-10 border-t sm:flex-row">
+        <div className="flex flex-col justify-between pt-5 pb-10 border-t sm:flex-row pl-16">
           <p className="text-sm text-gray-600">
             © Copyright 2023 Adeel Talib. All rights reserved.
           </p>

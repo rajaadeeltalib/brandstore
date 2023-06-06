@@ -11,7 +11,7 @@ import Link from 'next/link';
 
 const Hero = () => {
   return (
-    <Wrapper>
+    <>
     <section className="relative flex gap-x-16 sm:py-8 2xl:px-32 xl:px-24 md:px-16 px-8">
 
       <div className="flex-1 flex flex-col pt-12 py-2 gap-y-10">
@@ -44,7 +44,7 @@ const Hero = () => {
                               
 
       </section>
-      </Wrapper>
+      </>
   )
 }
 
