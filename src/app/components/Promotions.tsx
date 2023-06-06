@@ -7,58 +7,77 @@ import Image from "next/image";
 const Promotions = () => {
   return (
     <Wrapper>
-      <div className="grid grid-rows-2 mt-32">
-        <h4 className="text-md font-bold text-blue-600 flex justify-center">
-          PROMOTIONS
-        </h4>
-        <h2 className="text-4xl font-bold flex justify-center">
-          Our Promotions Events
-        </h2>
-      </div>
-      <div className="flex justify-between items-center mt-6">
-        {/* Section left start */}
-        <div className="mt-6">
-          <div className="w-[500px] h-[205px] bg-[#d6d6d8] flex justify-between items-center">
-            <div className="mx-8">
-              <h4 className="text-4xl font-bold ">GET UP TO<br/><span> 60%</span></h4>
-              <p className="text-lg font-medium">For the summer <br/>season</p>
+    <section className="sm:py-24 py-8 2xl:px-32 xl:px-24 md:px-16 px-8">
+      <h4 className="text-center text-blue-600 text-sm font-semibold pb-3.5">
+        PROMOTIONS
+      </h4>
+      <h2 className="text-center text-3xl font-bold pb-8">
+        Our Promotions Events
+      </h2>
+      <div className="flex lg:flex-row flex-col gap-4 ">
+        <div className="flex-1 space-y-4 lg:mr-4">
+          <div className="flex items-center justify-between bg-[#d6d6d8] px-8 h-48">
+            <div>
+              <h2 className="text-3xl font-semibold">
+                GET UP TO <span className="text-4xl font-bold">60%</span>
+              </h2>
+              <h3 className="text-lg">For the summer season</h3>
             </div>
-            <Image className="-mt-4" src={PromotionOne} alt="Promotion One" />
+            <Image
+              src={PromotionOne}
+              alt="Promotion Image 1"
+              loading="lazy"
+              width="180"
+              height="196"
+              className="place-self-end xl:mr-8"
+            />
           </div>
-          <div className="w-[500px] h-[200px] bg-black/90 mt-4 flex items-center justify-center">
-            <div className="mx-8 text-white flex flex-col items-center justify-center">
-              <h4 className="text-4xl font-bold">GET 30% Off</h4>
-              <p className="text-md font-normal mt-6">USE PROMO CODE</p>
-              <button className="bg-[#474747] rounded-md w-64 h-10 font-bold tracking-widest">
-                DINEWEEKENDSALE
-              </button>
+          <div className="text-white text-center bg-black/90 min-[450px]:px-8 px-2 py-8 pt-12">
+            <h2 className="text-4xl font-semibold">GET 30% Off</h2>
+            <h5 className="text-sm mt-4 mb-1">USE PROMO CODE</h5>
+            <h3 className="mx-auto bg-[#474747] font-semibold w-fit tracking-[0.3rem] min-[450px]:px-12 px-2 py-1.5 rounded-lg">
+              DINEWEEKENDSALE
+            </h3>
+          </div>
+        </div>
+        <div className="flex sm:flex-row flex-col gap-4">
+          <div className="flex-1 flex flex-col justify-between bg-[#efe1c7] pt-6">
+            <div className="pl-4">
+              <h4>Flex Sweatshirt</h4>
+              <p className="flex items-end gap-x-3">
+                <span className="line-through">$100.00</span>
+                <span className="text-lg font-semibold">$75.00</span>
+              </p>
             </div>
+            <Image
+              src={PromotionTwo}
+              alt="Promotion Image 2"
+              loading="lazy"
+              width="282"
+              height="362"
+              className="mx-auto h-80"
+            />
+          </div>
+          <div className="flex-1 flex flex-col justify-between bg-[#d6d6d8] pt-6">
+            <div className="pl-4">
+              <h4>Flex Push Button Bomber</h4>
+              <p className="flex items-end gap-x-3">
+                <span className="line-through">$225.00</span>
+                <span className="text-lg font-semibold">$190.00</span>
+              </p>
+            </div>
+            <Image
+              src={PromotionThree}
+              alt="Promotion Image 3"
+              loading="lazy"
+              width="282"
+              height="368"
+              className="mx-auto h-80"
+            />
           </div>
         </div>
-        {/* Section left end */}
-        {/* Section right start */}
-        <div className="grid grid-cols-2 space-x-6">
-        <div className="w-[270px] h-[423px] bg-amber-100 mt-9 flex flex-col  justify-center mx-8 ">
-        <p className="mx-6 mt-4">Flex Sweatshirt</p>
-        <div className="flex">
-        <p className="mx-6 line-through">$100.00</p>
-        <p className="mx-6 text-lg font-bold">$75.00</p>
-        </div>
-        <Image src={PromotionTwo} alt="Promotion Two" />
-
-
-        </div>
-        <div className="w-[270px] h-[423px] bg-purple-200 mt-9 flex flex-col items-center justify-center mb-4">
-        <p className="mx-6 mt-4">Flex Push Button Bomber</p>
-        <div className="flex">
-        <p className="mx-6 line-through">$225.00</p>
-        <p className="mx-6 text-lg font-bold">$190.00</p>
-        </div>
-        <Image src={PromotionThree} alt="Promotion Three" />
-        </div>
-        </div>
-        {/* Section right end */}
       </div>
+    </section>
     </Wrapper>
   );
 };

@@ -6,17 +6,17 @@ import Image from "next/image";
 
 const Products = () => {
   return (
-    <Wrapper>
-      <div className="grid grid-rows-2 mt-32">
-        <h4 className="text-md font-bold text-blue-600 flex justify-center">
+    <div >
+      <div className="mt-4">
+        <h4 className="text-md font-bold text-blue-600 flex justify-center lg:mb-8 ">
           PRODUCTS
         </h4>
-        <h2 className="text-4xl font-bold flex justify-center">
+        <h2 className="text-3xl lg:text-4xl font-bold flex justify-center mx-8">
           Check What We Have
         </h2>
       </div>
-      <div className="flex mt-12">
-        <div className=" h-96 hover:hover:scale-110 transition duration-700 ease-in-out z-10">
+      <div className="mt-12 grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 lg:max-w-[1090px] lg:mx-auto mx-8">
+        <div className=" h-96 hover:hover:scale-110 transition duration-700 ease-in-out z-10 mb-12">
           <Image src={ProductOne} alt="Product One" width={500} height={500} />
           <p className="text-lg font-bold">Brushed Raglan Sweatshirt</p>
           <p className="text-lg font-bold">$195</p>
@@ -41,7 +41,7 @@ const Products = () => {
 
         {/* Section right end */}
       </div>
-    </Wrapper>
+      </div>
   );
 };
 

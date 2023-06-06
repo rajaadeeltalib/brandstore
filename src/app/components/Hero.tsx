@@ -12,37 +12,39 @@ import Link from 'next/link';
 const Hero = () => {
   return (
     <Wrapper>
-    <div className='grid grid-cols-2 '>
-        {/* Hero Left Column Start*/}
-        <div className='flex flex-col mt-16 gap-8'>
-            <div className='bg-[#e1edff] w-[120px] h-10 flex items-center justify-center font-semibold text-[#0000ff] rounded-md'>Sale 70%</div>
-            {/* <h1 className='text-[66px]  font-bold'>An Industrial Take on Streetwears</h1> */}
-            <h1 className='text-6xl font-bold leading-[55px] tracking-[.03em] text-[#212121]'>An Industrial Take on Streetwears</h1>
-            <p className='font-normal text-base leading-6 text-[#666] block w-[50%]'>Anyone can beat you but no one can beat your outfit as long as you wear Dine outfits.</p>
-            <Link href={"/products"}>
-            <div className='flex text-4xl'>            
-            <button className='text-lg font-semibold leading-5 bg-[#212121] text-white w-[30%] h-[80px] flex justify-center items-center gap-2'><BiCart className='text-2xl'/>Start<br/> Shopping</button>
-            </div>
-            </Link>
-            <div className='flex gap-4 mt-12'>
+    <section className="relative flex gap-x-16 sm:py-8 2xl:px-32 xl:px-24 md:px-16 px-8">
+
+      <div className="flex-1 flex flex-col pt-12 py-2 gap-y-10">
+
+        <div className="bg-blue-100 text-blue-600 font-bold w-fit rounded-md px-5 py-2">Sale 70%</div>
+
+        <h1 className="sm:text-6xl text-5xl font-bold">An Industrial Take on Streetwear</h1>
+
+        <p className="text-slate-600 max-w-lg">Anyone can beat you but no one can beat your outfit as long as you wear Dine outfits.</p>
+        
+        <Link href="/products">
+          <button className="lg:w-fit min-[410px]:w-2/4 w-3/4 flex justify-center items-center gap-x-3 bg-black text-white font-semibold sm:px-16 px-2 py-5">
+            <BiCart /> Start Shopping</button>
+              </Link>
+
+              <div className="grid sm:grid-cols-4 grid-cols-2 gap-x-3 h-full items-end">
               <Image src={FeaturedImageOne} height={100} width={100}  alt='Featured Image 1' />
               <Image src={FeaturedImageTwo} height={100} width={100} alt='Featured Image 2' />
               <Image src={FeaturedImageThree} height={100} width={100} alt='Featured Image 3' />
               <Image src={FeaturedImageFour} height={100} width={100} alt='Featured Image 4' />
-            </div>
-            </div>
-            
-        {/* Hero left column end */}
-        {/* Hero Right Column Start */}
-        <div className='flex justify-center items-center relative'>
-          <div className='w-[500px] h-[500px] bg-[#ffece3] flex justify-center items-center rounded-full absolute -z-10 -mt-16'></div>
-      
-      <div className='-mt-20'><Image src={HeroImage} alt="Hero Image" height={650} width={650}/></div>
+                        </div>
+                        </div>
+                        <div className="flex-1 max-lg:hidden">
+                          <div className="bg-[#ffece3] rounded-full w-[600px] h-[600px]">
+                          <Image className='absolute top-0 w-[650px] h-[650px]' src={HeroImage} alt="Hero Image" height={604} width={628}/>
+                          </div>
 
-        </div>
-        {/* Hero Right Column END*/}
-    </div>
-    </Wrapper>
+                              </div>
+
+                              
+
+      </section>
+      </Wrapper>
   )
 }
 

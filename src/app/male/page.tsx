@@ -25,9 +25,9 @@ const MaleProducts = async () => {
   return (
     <Wrapper>
       <h1 className="flex justify-center py-16 max-w-screen mx-auto text-4xl font-bold">
-        All Products
+        All Male Products
       </h1>
-      <div className="grid grid-cols-4 gap-16">
+      <div className="grid justify-center items-center xl:grid-cols-4 lg:grid-cols-3 min-[600px]:grid-cols-2 grid-cols-1 md:gap-16 gap-6 mx-12">
         {product.map((item: any, index: number) => (
           <div key={index}>
             
