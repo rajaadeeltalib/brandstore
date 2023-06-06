@@ -16,7 +16,7 @@ const Products = () => {
         </h2>
       </div>
       <div className="mt-12 grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 lg:max-w-[1090px] lg:mx-auto mx-8">
-        <div className=" h-96 hover:hover:scale-110 transition duration-700 ease-in-out z-10 mb-12">
+        <div className=" h-96 hover:hover:scale-110 transition duration-700 ease-in-out z-10">
           <Image src={ProductOne} alt="Product One" width={500} height={500} />
           <p className="text-lg font-bold">Brushed Raglan Sweatshirt</p>
           <p className="text-lg font-bold">$195</p>

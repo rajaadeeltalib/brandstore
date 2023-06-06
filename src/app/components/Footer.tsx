@@ -22,7 +22,7 @@ export const Footer = () => {
             </div>
           </div>
           <div className="grid grid-cols-2 gap-5 row-gap-8 lg:col-span-4 md:grid-cols-4">
-            <div className="pl-16">
+            <div className="">
               <p className="font-semibold tracking-wide text-gray-800">
               Company
               </p>
@@ -93,7 +93,7 @@ export const Footer = () => {
                               
               </ul>
             </div>
-            <div className="pl-16">
+            <div className="">
               <p className="font-semibold tracking-wide text-gray-800">Contact</p>
               <ul className="mt-2 space-y-2">
                 <li>
@@ -118,7 +118,7 @@ export const Footer = () => {
             
           </div>
         </div>
-        <div className="flex flex-col justify-between pt-5 pb-10 border-t sm:flex-row pl-16">
+        <div className="flex flex-col justify-between pt-5 pb-10 border-t sm:flex-row">
           <p className="text-sm text-gray-600">
             © Copyright 2023 Adeel Talib. All rights reserved.
           </p>
