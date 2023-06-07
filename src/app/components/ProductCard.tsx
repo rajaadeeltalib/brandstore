@@ -1,5 +1,5 @@
 "use client";
-import { FC } from "react";
+
 import { CgShoppingCart } from "react-icons/cg";
 
 const ProductCard = (item: any) => {

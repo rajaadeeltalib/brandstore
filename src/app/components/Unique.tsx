@@ -1,4 +1,3 @@
-import Wrapper from "./Wrapper";
 import Image from "next/image";
 import UniqueOne from "../../../public/uniqueone.webp";
 import Link from "next/link";
@@ -57,9 +56,13 @@ const Unique = () => {
                 The Natural color is the actual natural color of the fiber,
                 undyed and 100% traceable.
               </p>
-              <button className="flex justify-center items-center bg-black text-sm text-white font-semibold px-16 py-2.5">
-                See All Product
-              </button>
+              <div className="flex justify-center">
+                <Link href={"/products"}>
+                  <button className="flex justify-center items-center bg-black text-sm text-white font-semibold px-16 py-2.5">
+                    See All Product
+                  </button>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
