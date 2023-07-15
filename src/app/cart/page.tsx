@@ -6,26 +6,18 @@ import { RiDeleteBinLine } from "react-icons/ri";
 import React, { useEffect, useState } from "react";
 
 import ProductOne from "../../../public/productone.png";
-import { client } from "@/lib/sanityClient";
+import { log } from "console";
 
 interface cartfetchedData {
-  user_id: string;
-  product_id: string;
-  quantity: number;
+  user_id : string,
+  product_id : string,
+  quantity : number,
 }
 
-const Cart = async () => {
+const Cart = () => {
   const [count, setCount] = useState(1);
   const [cartData, setCartData] = useState<cartfetchedData[]>([]);
 
-  async function getSingleProducts(product_id: any) {
-    console.log("Pro", product_id);
-    const query = `*[_type=='product' && _id == ${product_id}]{name}`;
-    console.log(query);
-    const res = await client.fetch(query);
-    console.log("Products", res);
-    return res;
-  }
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -39,8 +31,9 @@ const Cart = async () => {
 
     fetchData();
   }, []);
-
-  console.log(cartData);
+  
+    
+  console.log(cartData)
   function increaseCount() {
     setCount(count + 1);
   }
@@ -50,19 +43,22 @@ const Cart = async () => {
       setCount(count - 1);
     }
   }
-
   return (
     <main className="max-w-[1280px] mx-auto my-12">
       <div className="">
         <h2 className="font-bold text-2xl mb-8 flex justify-center">
           Shopping Cart
         </h2>
-        {cartData.map(async (item) => {
-          const res = await getSingleProducts(item.product_id);
-          console.log(res);
-          return (
-            <div key={item.product_id}>
-             <div className="md:flex md:justify-between md:gap-16">
+        {cartData.map((item, index)=>(
+        <div key={index}>
+          <h1>{item.user_id}</h1>
+          <h2>{item.product_id}</h2>
+            <h3>{item.quantity}</h3>
+        </div>
+
+        ))}
+        
+        <div className="md:flex md:justify-between md:gap-16">
           <div className="mt-8 flex grow-[3px] shrink">
             <div className="md:flex md:gap-8">
               <div className="flex justify-center mx-24">
@@ -71,14 +67,14 @@ const Cart = async () => {
               <div className="md:flex md:flex-col md:justify-between md:w-[50%]">
                 <div className="flex justify-center items-center md:flex md:justify-between ">
                   <h3 className="text-xl font-light leading-6 flex justify-center m-4 md:flex md:justify-start">
-                    {res.title}
+                    Brushed Raglan Sweatshirt
                   </h3>
                   <button className="flex text-2xl">
                     <RiDeleteBinLine />
                   </button>
                 </div>
                 <p className="font-semibold text-base leading-4 flex justify-center md:flex md:justify-start mx-4">
-                  {res.subcategory}
+                  Dress
                 </p>
                 <div className="flex justify-center gap-8 my-8 md:flex md:justify-start mx-4">
                   <p className="font-semibold text-base leading-6 flex justify-center">
@@ -138,11 +134,6 @@ const Cart = async () => {
             </div>
           </div>
         </div>
-            </div>
-          );
-        })}
-
-       
       </div>
     </main>
   );
