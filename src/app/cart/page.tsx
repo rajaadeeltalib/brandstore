@@ -3,13 +3,44 @@ import Image from "next/image";
 // import {BiMinus} from "react-icons/bi"
 // import {BsPlusLg} from "react-icons/bs"
 import { RiDeleteBinLine } from "react-icons/ri";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import ProductOne from "../../../public/productone.png";
+import { client } from "@/lib/sanityClient";
 
-const Cart = () => {
+interface cartfetchedData {
+  user_id: string;
+  product_id: string;
+  quantity: number;
+}
+
+const Cart = async () => {
   const [count, setCount] = useState(1);
+  const [cartData, setCartData] = useState<cartfetchedData[]>([]);
 
+  async function getSingleProducts(product_id: any) {
+    console.log("Pro", product_id);
+    const query = `*[_type=='product' && _id == ${product_id}]{name}`;
+    console.log(query);
+    const res = await client.fetch(query);
+    console.log("Products", res);
+    return res;
+  }
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch("/api/cart");
+        const data = await res.json();
+        setCartData(data.res);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  console.log(cartData);
   function increaseCount() {
     setCount(count + 1);
   }
@@ -19,13 +50,19 @@ const Cart = () => {
       setCount(count - 1);
     }
   }
+
   return (
     <main className="max-w-[1280px] mx-auto my-12">
       <div className="">
         <h2 className="font-bold text-2xl mb-8 flex justify-center">
           Shopping Cart
         </h2>
-        <div className="md:flex md:justify-between md:gap-16">
+        {cartData.map(async (item) => {
+          const res = await getSingleProducts(item.product_id);
+          console.log(res);
+          return (
+            <div key={item.product_id}>
+             <div className="md:flex md:justify-between md:gap-16">
           <div className="mt-8 flex grow-[3px] shrink">
             <div className="md:flex md:gap-8">
               <div className="flex justify-center mx-24">
@@ -34,14 +71,14 @@ const Cart = () => {
               <div className="md:flex md:flex-col md:justify-between md:w-[50%]">
                 <div className="flex justify-center items-center md:flex md:justify-between ">
                   <h3 className="text-xl font-light leading-6 flex justify-center m-4 md:flex md:justify-start">
-                    Brushed Raglan Sweatshirt
+                    {res.title}
                   </h3>
                   <button className="flex text-2xl">
                     <RiDeleteBinLine />
                   </button>
                 </div>
                 <p className="font-semibold text-base leading-4 flex justify-center md:flex md:justify-start mx-4">
-                  Dress
+                  {res.subcategory}
                 </p>
                 <div className="flex justify-center gap-8 my-8 md:flex md:justify-start mx-4">
                   <p className="font-semibold text-base leading-6 flex justify-center">
@@ -101,6 +138,11 @@ const Cart = () => {
             </div>
           </div>
         </div>
+            </div>
+          );
+        })}
+
+       
       </div>
     </main>
   );

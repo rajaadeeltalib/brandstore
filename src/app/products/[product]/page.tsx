@@ -90,7 +90,7 @@ const Product = async (Slug: any) => {
             </div>
 
             {/* ....................... */}
-            <Quantity />
+            {/* <Quantity /> */}
             <div className="my-4 w-[450px] lg:w-80 md:mx-8 -mx-6">
               <ProductCard item={d} className="w-screen lg:w-80" />
             </div>

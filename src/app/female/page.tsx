@@ -7,7 +7,6 @@ import { urlForImage } from "../../../sanity/lib/image";
 
 const getFemaleProducts = async () => {
   const res = await client.fetch(`*[_type=='product' && category=='Female']`);
-
   return res;
 };
 
