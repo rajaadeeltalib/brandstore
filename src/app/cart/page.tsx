@@ -3,13 +3,37 @@ import Image from "next/image";
 // import {BiMinus} from "react-icons/bi"
 // import {BsPlusLg} from "react-icons/bs"
 import { RiDeleteBinLine } from "react-icons/ri";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import ProductOne from "../../../public/productone.png";
+import { log } from "console";
+
+interface cartfetchedData {
+  user_id : string,
+  product_id : string,
+  quantity : number,
+}
 
 const Cart = () => {
   const [count, setCount] = useState(1);
+  const [cartData, setCartData] = useState<cartfetchedData[]>([]);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch("/api/cart");
+        const data = await res.json();
+        setCartData(data.res);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchData();
+  }, []);
+  
+    
+  console.log(cartData)
   function increaseCount() {
     setCount(count + 1);
   }
@@ -25,6 +49,15 @@ const Cart = () => {
         <h2 className="font-bold text-2xl mb-8 flex justify-center">
           Shopping Cart
         </h2>
+        {cartData.map((item, index)=>(
+        <div key={index}>
+          <h1>{item.user_id}</h1>
+          <h2>{item.product_id}</h2>
+            <h3>{item.quantity}</h3>
+        </div>
+
+        ))}
+        
         <div className="md:flex md:justify-between md:gap-16">
           <div className="mt-8 flex grow-[3px] shrink">
             <div className="md:flex md:gap-8">

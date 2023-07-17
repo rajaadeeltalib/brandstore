@@ -15,13 +15,6 @@ async function getSingleProducts(Slug: any) {
   const res = await client.fetch(
     `*[_type=='product' && Slug.current == '${Slug.params.product}']`
   );
-
-  // Recommendation: handle errors
-  // if (!res.ok) {
-  //   // This will activate the closest `error.js` Error Boundary
-  //   throw new Error("Failed to fetch data");
-  // }
-
   return res;
 }
 
@@ -90,7 +83,7 @@ const Product = async (Slug: any) => {
             </div>
 
             {/* ....................... */}
-            <Quantity />
+            {/* <Quantity /> */}
             <div className="my-4 w-[450px] lg:w-80 md:mx-8 -mx-6">
               <ProductCard item={d} className="w-screen lg:w-80" />
             </div>
