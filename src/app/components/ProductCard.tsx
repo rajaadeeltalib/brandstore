@@ -5,7 +5,7 @@ import React, { useState } from 'react'
 import { BiMinus } from 'react-icons/bi';
 import { BsPlusLg } from 'react-icons/bs';
 import { CgShoppingCart } from "react-icons/cg";
-import AddtoCart from './AddToCart';
+
 
 const ProductCard = (item: any) => {
   const [count, setCount] = useState(1);
@@ -41,7 +41,10 @@ const ProductCard = (item: any) => {
   console.log("count",count);
   
   return (
-    <div className="flex  items-center mx-6">
+    <div>
+
+    
+    <div className="flex items-center mx-6 gap-x-4">
          <div className="flex justify-center items-center text-2xl w-8 h-8 rounded-full bg-gray-200 cursor-pointer my-4">
                   <BiMinus onClick={decreaseCount}/>
                 </div>
@@ -49,15 +52,19 @@ const ProductCard = (item: any) => {
                 <div className="flex justify-center items-center text-2xl w-8 h-8 rounded-full border border-black cursor-pointer">
                   <BsPlusLg onClick={increaseCount}/>
                 </div>
-      <button
+     
+    </div>
+    <div className='mx-6'>
+    <button
         onClick={handleAddToCart}
         className="flex text-sm w-[50%] font-semibold leading-5 bg-[#212121] p-2.5 justify-center items-center gap-2 text-[#fff]"
         type="button"
       >
-        <AddtoCart />
-        {/* <CgShoppingCart />
-        Add to Cart */}
+       
+        <CgShoppingCart />
+        Add to Cart
       </button>
+    </div>
     </div>
   );
 };
