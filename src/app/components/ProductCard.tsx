@@ -5,6 +5,7 @@ import React, { useState } from 'react'
 import { BiMinus } from 'react-icons/bi';
 import { BsPlusLg } from 'react-icons/bs';
 import { CgShoppingCart } from "react-icons/cg";
+import AddtoCart from './AddToCart';
 
 const ProductCard = (item: any) => {
   const [count, setCount] = useState(1);
@@ -53,8 +54,9 @@ const ProductCard = (item: any) => {
         className="flex text-sm w-[50%] font-semibold leading-5 bg-[#212121] p-2.5 justify-center items-center gap-2 text-[#fff]"
         type="button"
       >
-        <CgShoppingCart />
-        Add to Cart
+        <AddtoCart />
+        {/* <CgShoppingCart />
+        Add to Cart */}
       </button>
     </div>
   );

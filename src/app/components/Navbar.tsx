@@ -7,8 +7,13 @@ import { BsSearch } from "react-icons/bs";
 import { BiCart } from "react-icons/bi";
 import { FiMenu } from "react-icons/fi";
 import { MdClose } from "react-icons/md";
+import { useSelector } from 'react-redux'
+import { RootState } from '../store/store';
 
 const Navbar = () => {
+
+  const cartValue = useSelector((state:RootState)=>state.cart.totalQuantity)
+  
   const [showMenu, setShowMenu] = useState(false);
   return (
     <header className="relative flex items-center justify-between py-8 2xl:px-32 xl:px-24 md:px-16 px-8">
