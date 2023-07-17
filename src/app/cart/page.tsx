@@ -86,7 +86,7 @@ const Cart = () => {
                 </div>
                 <div className="md:flex mx-4">
                   <span className="leading-5 font-bold text-lg tracking-widest flex justify-center my-8 md:my-0 md:flex md:justify-start ">
-                    $196
+                    $195
                   </span>
                   <div className="flex mx-24 mb-8">
                     <p className="font-semibold text-xl text-gray-800 flex justify-center md:flex md:items-center">
