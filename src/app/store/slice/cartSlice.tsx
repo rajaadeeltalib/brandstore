@@ -4,13 +4,13 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 export interface CounterState {
   items: Array<any>;
   totalAmount: number;
-  totalQuantity: number;
+  quantity: number;
 }
 
 const initialState: CounterState = {
   items: [],
   totalAmount: 0,
-  totalQuantity:0
+  quantity:0
 }
 
 export const counterSlice = createSlice({
@@ -18,10 +18,10 @@ export const counterSlice = createSlice({
   initialState,
   reducers: {
     addtoCart: (state,actions:PayloadAction<any>) => {
-      state.totalQuantity += actions.payload.quantity
+      state.quantity += actions.payload.quantity
     },
     removeFromCart: (state,actions:PayloadAction<any>) => {
-      state.totalQuantity -= actions.payload.quantity
+      state.quantity -= actions.payload.quantity
     },
     clearCart: (state) => {
       state = initialState

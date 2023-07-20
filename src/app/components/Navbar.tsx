@@ -7,11 +7,13 @@ import { BsSearch } from "react-icons/bs";
 import { BiCart } from "react-icons/bi";
 import { FiMenu } from "react-icons/fi";
 import { MdClose } from "react-icons/md";
+import { useSelector } from 'react-redux'
+import { RootState } from '../store/store';
 
 
 const Navbar = () => {
 
-  
+  const cartValue = useSelector((state:RootState)=>state.cart.quantity)
 
   const [showMenu, setShowMenu] = useState(false);
   return (
@@ -48,7 +50,7 @@ const Navbar = () => {
         >
           <BiCart className="w-6 h-6" />
           <span className="flex items-center justify-center text-white text-xs w-4 h-4 bg-red-500 absolute right-0 top-0 rounded-full">
-            0
+          {cartValue}
           </span>
         </Link>
       </div>

@@ -9,7 +9,7 @@ import { client } from "../../../lib/sanityClient";
 import { urlForImage } from "../../../../sanity/lib/image";
 import ProductCard from "@/app/components/ProductCard";
 import { useState } from "react";
-import Quantity from "@/app/components/Quantity";
+
 
 async function getSingleProducts(Slug: any) {
   const res = await client.fetch(

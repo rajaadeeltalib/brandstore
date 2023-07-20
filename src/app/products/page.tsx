@@ -13,6 +13,7 @@ const getProducts = async () => {
 
 const Products = async () => {
   const product = await getProducts();
+ 
 
   return (
     <Wrapper>

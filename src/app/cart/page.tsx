@@ -3,11 +3,39 @@ import Image from "next/image";
 // import {BiMinus} from "react-icons/bi"
 // import {BsPlusLg} from "react-icons/bs"
 import { RiDeleteBinLine } from "react-icons/ri";
-import React, { useState } from "react";
-
+import React, { useEffect, useState } from "react";
 import ProductOne from "../../../public/productone.png";
+import { client } from "../../../sanity/lib/client";
+import { urlForImage } from "../../../sanity/lib/image";
 
-const Cart = () => {
+
+
+
+const getProductData = async (product_id: string) => {
+  const res = await client.fetch(`*[_type=='product' && _id == "${product_id}]{
+    image, price, category, subcategory, title
+  }`);
+
+  return res[0];
+  
+};
+
+const getData = async (userId: string) => {
+  try {
+    const res = await fetch(`/api/cart/${userId}`);
+    const data = await res.json();
+    console.log('Fetched Data', data);
+    return data;
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    throw error;
+  }
+};
+
+
+
+const Cart = async() => {
+    
   const [count, setCount] = useState(1);
 
   function increaseCount() {
@@ -20,7 +48,10 @@ const Cart = () => {
     }
   }
   return (
+    <>
+    
     <main className="max-w-[1280px] mx-auto my-12">
+      
       <div className="">
         <h2 className="font-bold text-2xl mb-8 flex justify-center">
           Shopping Cart
@@ -35,6 +66,7 @@ const Cart = () => {
                 <div className="flex justify-center items-center md:flex md:justify-between ">
                   <h3 className="text-xl font-light leading-6 flex justify-center m-4 md:flex md:justify-start">
                     Brushed Raglan Sweatshirt
+                    
                   </h3>
                   <button className="flex text-2xl">
                     <RiDeleteBinLine />
@@ -103,6 +135,7 @@ const Cart = () => {
         </div>
       </div>
     </main>
+    </>
   );
 };
 
